@@ -29,8 +29,11 @@ Student::Student(){
     }
   */
 }
-
+/*
+ *
+ */
 bool Student::login(string username, string password){
+  u
 }
 /*
  *concatenates the first and last name and returns full name
