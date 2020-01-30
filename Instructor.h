@@ -10,14 +10,17 @@ using namespace std;
  */
 class Instructor{
 public:
-  bool login(string username, string password);
-  string getInstructorName();
-  Student getStudent(string username);
-  Student getMinStudent(int gradeType);
-  Student getMaxStudetn(int gradeType);
-  double getAvg(int gradeType);
-  //void setInstructorName(string fullName);
+    bool login(string username, string password);
+    string getInstructorName();
+    string setInstructorNAme(string firstName,string lastName);
+    Student getStudent(string username);
+    Student getMinStudent(int gradeType);
+    Student getMaxStudetn(int gradeType);
+    double getAvg(int gradeType);
+    //void setInstructorName(string fullName);
 private:
-  string fullName;
+    string fullName;
+    string firstName;
+    string lastName;
 };
 #endif

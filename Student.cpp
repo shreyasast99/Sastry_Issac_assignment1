@@ -24,17 +24,28 @@ double getOverallGrade();
  *Student constructor
  */
 Student::Student(){
-  
-    ifstream studentFile;
-    studentFile.open("students.txt",ios::in);
-    while(studentFile>>username>>password>>firstName>>lastName>>projectGrade>>quizGrade>>midtermGrade>>finalGrade){
-        
-    }
-  
+          
 }
 
 bool Student::login(string username, string password){
-    return true;
+    //parse files
+    ifstream inStudentFile("students.txt",ios::in);
+    
+    //checking if the ifstream could not open the file
+    if(!inStudentFile){
+       cerr<<"File could not be opened"<<endl;
+       exit(1);
+    }//checking if file could be opened
+    
+    while(inStudentFile >> username >> password >> firstName >> lastName>>projectGrade>>quizGrade>>midtermGrade>>finalGrade){
+        if(this.username==username&&this.password==password){
+           
+           return true;
+        }
+        
+    }
+    return false;
+    
 }
 /*
  *concatenates the first and last name and returns full name
