@@ -3,23 +3,24 @@ DEBUG = -g
 CFLAGS = -Wall -c -std=c++14 -pedantic-errors $(DEBUG)
 LFLAGS = -Wall $(DEBUG)
 
-compile: Student.out Instructor.out
+compile: main.out
 
-proj1.out: main.o proj1.o
-	$(CC) $(LFLAGS) -o proj1.out main.o proj1.o
+main.out: main.o Student.o Instructor.o
+	$(CC) $(LFLAGS) -o main.out main.o Student.o Instructor.o 
 
-main.o: main.cpp proj1.h
+main.o: main.cpp Student.o Instructor.o
 	$(CC) $(CFLAGS) main.cpp
 
-proj1.o: proj1.cpp proj1.h
-	$(CC) $(CFLAGS) proj1.cpp
+Student.o: Student.cpp Student.h
+	$(CC) $(CFLAGS) Student.cpp
 
-run: proj1.out
-	./proj1.out -a -v 5 2 3 1 9 -e 97
-	./proj1.out -v 5 2 3 1 9 -e 97 -a
-	./proj1.out -e 97 -v 5 2 3 1 9 -b
-	./proj1.out -v 5 2 3 1 9 -b -e 97
+Instructor.o: Instructor.cpp Instructor.h
+	$(CC) $(CFLAGS) Instructor.cpp
+
+run: main.out
+	./main instructors.txt students.txt
 
 clean:
-	rm proj1.out
 	rm *.o
+	rm *.out
+
