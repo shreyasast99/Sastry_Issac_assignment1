@@ -8,6 +8,7 @@ string username;
 string pass;
 int query;
 string viewGrades;
+string studentUser;
 void main{
     while(person!=3){
         cout<<"User types,\n 1 - Instructor\n 2 - Student\n select a login user type or enter 3 to exit:\n"<<endl;
@@ -26,10 +27,13 @@ void main{
                 cin>>query;
                 //checks the query option(view grades or view stats
                 while(query!=1&&query!=2){
-
+                    cout<<"Query options,\n1 - view grades of a student\n2 - view stats\nEnter option number:"<<endl;
+                    cin>>query;
                 }
                 if(query==1){
                     cout<<"Enter student username to view grades: "<<endl;
+                    cin>>studentUser;
+                    instructor.getStudent(studentUser);
                 }
                 else if(query==2){
 

@@ -22,12 +22,13 @@ double getOverallGrade();
  *Student constructor
  */
 Student::Student(){
-  /*
+  
     ifstream studentFile;
-    studentFile.open("students.txt");
-    while(studentFile>>){
+    studentFile.open("students.txt",ios::in);
+    while(studentFile>>username>>password>>firstName>>lastName>>projectGrade>>quizGrade>>midtermGrade>>finalGrade){
+        
     }
-  */
+  
 }
 
 bool Student::login(string username, string password){

@@ -5,7 +5,7 @@ LFLAGS = -Wall $(DEBUG)
 
 compile: Student.out Instructor.out
 
-proj1.out: main.o proj1.o
+proj1.out: main.o Student.o Instructor.o
 	$(CC) $(LFLAGS) -o proj1.out main.o proj1.o
 
 main.o: main.cpp proj1.h
