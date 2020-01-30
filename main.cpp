@@ -36,16 +36,16 @@ void main{
                     instructor.getStudent(studentUser);
                 }
                 else if(query==2){
-
+		  
                 }
                 else{
-                    cout<<"Invalid option. Please enter a valid option."<<endl;
+		  cout<<"Invalid option. Please enter a valid option."<<endl;
                 }
             }
             else{
-                cout<<"Login as instructor failed"<<endl;
+	      cout<<"Login as instructor failed"<<endl;
             }
-        }
+        }//Person is 1 (Instructor)
         else if(person==2){
             //do student stuff
             cout<<"Enter credentials to login, Enter username:"<<endl;
@@ -56,30 +56,30 @@ void main{
             student.login(username,pass);
             //checks if login attempt is valid
             if(student.login(username,pass)==true){
-                cout<<"You are now logged in as student "<< student.getStudentName()<< "."<<endl;
-                cout<<"Do you want to view grades (y/n)?"<<endl;
-                cin<<viewGrades;
-                if(viewGrades=="y"){
-                    cout<<"Student name: "<<student.getStudentName()<<endl;
-                    cout<<"Project"<<student.getProjectGrade()<<endl;
-                    cout<<"Quiz"<<student.getQuizGrade()<<endl;
-                    cout<<"Midterm"<<student.getMidtermGrade()<<endl;
-                    cout<<"Final"<<student.getFinalGrade()<<endl;
-                    cout<<"Overall"<<student.getOverallGrade()<<endl;
-                }
-                else{
-                    delete student;
-                }
+	      cout<<"You are now logged in as student "<< student.getStudentName()<< "."<<endl;
+	      cout<<"Do you want to view grades (y/n)?"<<endl;
+	      cin<<viewGrades;
+	      if(viewGrades=="y"){
+		cout<<"Student name: "<<student.getStudentName()<<endl;
+		cout<<"Project"<<student.getProjectGrade()<<endl;
+		cout<<"Quiz"<<student.getQuizGrade()<<endl;
+		cout<<"Midterm"<<student.getMidtermGrade()<<endl;
+		cout<<"Final"<<student.getFinalGrade()<<endl;
+		cout<<"Overall"<<student.getOverallGrade()<<endl;
+	      }
+	      else{
+		delete student;
+	      }
             }
             else{
-                cout<<"Login as student failed."<<endl;
+	      cout<<"Login as student failed."<<endl;
             }
-        }
+        }//if person 2 (Student)
         else{
-            cout<<"Invalid option. Please enter a valid option."<<endl;
-        }
-    }
+	  cout<<"Invalid option. Please enter a valid option."<<endl;
+        }//if they did not input 1 or 2
+    }//end of while lop
     if(person==3){
-        exit(0);
-    }
-}
+		  exit(0);
+    }//exiting the loop
+}//main method end loop
