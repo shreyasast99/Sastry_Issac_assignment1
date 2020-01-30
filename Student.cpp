@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include "Student.h"
 using namespace std;
 string fullName;
 string firstName;
@@ -18,6 +19,7 @@ int getQuizGrade();
 int getMidtermGrade();
 int getFinalGrade();
 double getOverallGrade();
+//class Student{
 /*
  *Student constructor
  */
@@ -32,6 +34,7 @@ Student::Student(){
 }
 
 bool Student::login(string username, string password){
+    return true;
 }
 /*
  *concatenates the first and last name and returns full name
@@ -101,6 +104,7 @@ void Student::setMidtermGrade(int grade){
  *setting the final grade
  */
 void Student::setFinalGrade(int grade){
-  setFinalGrade=grade;
+  finalGrade=grade;
 }
-  
+//Student::~Student(){}
+//};
