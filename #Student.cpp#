@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include "Student.h"
 using namespace std;
 string fullName;
 string firstName;
@@ -18,22 +19,33 @@ int getQuizGrade();
 int getMidtermGrade();
 int getFinalGrade();
 double getOverallGrade();
+//class Student{
 /*
  *Student constructor
  */
 Student::Student(){
-  /*
-    ifstream studentFile;
-    studentFile.open("students.txt");
-    while(studentFile>>){
-    }
-  */
+          
 }
-/*
- *
- */
+
 bool Student::login(string username, string password){
-  u
+    //parse files
+    ifstream inStudentFile("students.txt",ios::in);
+    
+    //checking if the ifstream could not open the file
+    if(!inStudentFile){
+       cerr<<"File could not be opened"<<endl;
+       exit(1);
+    }//checking if file could be opened
+    
+    while(inStudentFile >> username >> password >> firstName >> lastName>>projectGrade>>quizGrade>>midtermGrade>>finalGrade){
+        if(this.username==username&&this.password==password){
+           
+           return true;
+        }
+        
+    }
+    return false;
+    
 }
 /*
  *concatenates the first and last name and returns full name
@@ -103,6 +115,7 @@ void Student::setMidtermGrade(int grade){
  *setting the final grade
  */
 void Student::setFinalGrade(int grade){
-  setFinalGrade=grade;
+  finalGrade=grade;
 }
-  
+//Student::~Student(){}
+//};
