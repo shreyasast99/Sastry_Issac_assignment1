@@ -31,12 +31,12 @@ double getMax(Student student);
 void setMax(double max);
 */
 //when the intructor logs in youshould make a instructor object with all instructor info. To check if they are actually an instructor then
-Instructor::Instructor(/*string username, string password,string firstName, string lastName*/){
-  //setting the parsed values into the constructor to make the instructor object
-  //this.username=username;
-  //this.password=password;
-  //this.firstName=firstName;
-  //this.lastName=lastName; 
+Instructor::Instructor(){
+  username="";
+  password="";
+  fullName="";
+  minValue=0;
+  maxValue=0;
 }
 double Instructor::getMin(){
     return minValue;
