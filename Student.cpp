@@ -117,5 +117,18 @@ void Student::setMidtermGrade(int grade){
 void Student::setFinalGrade(int grade){
   finalGrade=grade;
 }
+
+void Student::setUsername(string username){
+    this.username=username;
+}
+void Student::setPassword(string password){
+    this.password=password;
+}
+void Student::setFirstName(string firstName){
+    this.firstName=firstName;
+}
+void Student::setLastName(string lastName){
+    this.lastName=lastName;
+}
 //Student::~Student(){}
 //};

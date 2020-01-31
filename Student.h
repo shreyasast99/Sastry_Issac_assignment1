@@ -23,7 +23,10 @@ public:
     void setQuizGrade(int grade);
     void setMidtermGrade(int grade);
     void setFinalGrade(int grade);
-    
+    void setUsername(string username);
+    void setPassword(string password);
+    void setFirstName(string firstName);
+    void setLastName(string lastName);
     
 private:
     string fullName;
