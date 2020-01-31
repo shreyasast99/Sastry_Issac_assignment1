@@ -39,7 +39,7 @@ Instructor::Instructor(/*string username, string password,string firstName, stri
   //this.lastName=lastName; 
 }
 double Instructor::getMin(){
-  return minValue;
+    return minValue;
 }
 double Instructor::getMax(){
   return maxValue;
@@ -87,13 +87,13 @@ bool Instructor::login(string username, string password){
 }
 
 void setInstructorName(string firstName, string lastName){
-  fullName=firstName+ " " + lastName;
+    fullName=firstName+ " " + lastName;
 }
 string Instructor::getInstructorName(){
   return fullName;
 }
 string getUsername(){
-  return username;
+    return username;
 }
 string getPassword(){
   return password;
