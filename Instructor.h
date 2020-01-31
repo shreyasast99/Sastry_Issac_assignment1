@@ -13,13 +13,16 @@ class Instructor{
 public:
   Instructor();
   bool login(string username, string password);
+  bool studentUsername(string username);
   string getInstructorName();
   string getUsername();
   string getPassword();
   string setInstructorName(string firstName,string lastName);
   Student getStudent(string username);
   Student getMinStudent(int gradeType);
+  double getMin();
   Student getMaxStudent(int gradeType);
+  double getMax();
   double getAvg(int gradeType);
   //void setInstructorName(string fullName);
 private:

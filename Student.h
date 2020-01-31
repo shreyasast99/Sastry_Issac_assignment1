@@ -3,7 +3,6 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "Instructor.h"
 using namespace std;
 /*
  *creates a student class

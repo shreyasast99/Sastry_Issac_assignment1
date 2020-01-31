@@ -4,12 +4,12 @@
 #include "Instructor.h"
 using namespace std;
 int person=0;
-string username;
-string pass;
-int query;
-string viewGrades;
-string studentUser;
-int gradeType;
+string username="";
+string pass="";
+int query=0;
+string viewGrades="";
+string studentUser="";
+int gradeType=0;
 int main(){
     while(person!=3){
         cout<<"User types,\n 1 - Instructor\n 2 - Student\n select a login user type or enter 3 to exit:\n"<<endl;
@@ -24,33 +24,34 @@ int main(){
             Instructor *instructor= new Instructor();
             if(instructor->login(username,pass)==true){
                 cout<<"You are now logged in as instructor "<< instructor->getInstructorName()<< "."<<endl;
-                cout<<"Query options,\n1 - view grades of a student\n2 - view stats\nEnter option number:"<<endl;
-                cin>>query;
+                //cout<<"Query options,\n1 - view grades of a student\n2 - view stats\nEnter option number:"<<endl;
+                //cin>>query;
                 //checks the query option(view grades or view stats)
-                int queryValid=0;
+                int userValid=0; //assuming it is false
                 
-                while(queryValid==0){//checks if user input is valid
+                while(userValid==0){//while it is not valid
                     cout<<"Query options,\n1 - view grades of a student\n2 - view stats\nEnter option number:"<<endl;
                     cin>>query;
-                    if(query!=1&&query!=2){
-                        queryValid=0;
+                    if(query==1&&query==2){
+		      userValid=1; //if it is valid, then changed to 1
                     }
-                    userValid=1;
                     if(query==1){
                         cout<<"Enter student username to view grades: "<<endl;
                         cin>>studentUser;
                         //checking if username is in file COME BACK HERE
-                        if(student.getUsername(studentUser).compare("")){
+                        if(instructor->studentUsername(studentUser)==false){
                             cout<<"Student username is not valid."<<endl;
                             userValid=0;
                         }
-                        cout<<"Student name:"<<instructor->getStudent(studentUser).getStudentName()<<endl;
-                        cout<<"Project   "<<instructor->getStudent(studentUser).getProjectGrade()<<endl;
-                        cout<<"Quiz   "<<instructor->getStudent(studentUser).getQuizGrade()<<endl;
-                        cout<<"Midterm   "<<instructor->getStudent(studentUser).getMidtermGrade()<<endl;
-                        cout<<"Final   "<<instructor->getStudent(studentUser).getFinalGrade()<<endl;
-                        cout<<"Overall   "<<instructor->getStudent(studentUser).getOverallGrade()<<endl;
-                    }
+			else{
+			  cout<<"Student name:"<<instructor->getStudent(studentUser).getStudentName()<<endl;
+			  cout<<"Project   "<<instructor->getStudent(studentUser).getProjectGrade()<<endl;
+			  cout<<"Quiz   "<<instructor->getStudent(studentUser).getQuizGrade()<<endl;
+			  cout<<"Midterm   "<<instructor->getStudent(studentUser).getMidtermGrade()<<endl;
+			  cout<<"Final   "<<instructor->getStudent(studentUser).getFinalGrade()<<endl;
+			  cout<<"Overall   "<<instructor->getStudent(studentUser).getOverallGrade()<<endl;
+			}
+		    }
                     else if(query==2){
                         int wrongType=0;
                         while(wrongType==0){
@@ -64,7 +65,9 @@ int main(){
                             else{
                                 if(gradeType==1){
                                     cout<<"Overall grade stats, "<<endl;
-                                    cout<<"min "<< instructor->getStudent(studentUser).getStudentName()<<endl;
+                                    cout<<"min ";
+				    instructor->getMinStudent(1);
+				    cout<<instructor->getMin()<<" ("<<instructor->getMinStudent(1).getStudentName()<<")"<<endl;	 
                                 }
                                 wrongType=1;
                             }
@@ -113,6 +116,6 @@ int main(){
         }//if they did not input 1 or 2
     }//end of while lop
     if(person==3){
-		  exit(0);
+      exit(0);
     }//exiting the loop
 }//main method end loop

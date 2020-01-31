@@ -3,24 +3,30 @@
 #include<fstream>
 #include "Student.h"
 #include "Instructor.h"
-string username;
-string password;
-string firstName;
-string lastName;
-string fullName;
-int projectGrade;
-int quizGrade;
-int midtermGrade;
-int finalGrade;
+string username="";
+string password="";
+string firstName="";
+string lastName="";
+string fullName="";
+int projectGrade="";
+int quizGrade=0;
+int midtermGrade=0;
+int finalGrade=0;
+int minValue=0;
+int maxValue=0;
 
 vector<Student*> StudentVec;
 bool login(string username, string password);
+bool getStudentUsername(string username);
 string getInstructorName();
 Student getStudent(string username);
 Student getMinStudent(int gradeType);
 Student getMaxStudent(int gradeType);
 double getAvg(int gradeType);
-
+double getMin(Student student);
+void setMin(double min);
+double getMax(Student student);
+void setMax(double max);
 //when the intructor logs in youshould make a instructor object with all instructor info. To check if they are actually an instructor then
 Instructor::Instructor(/*string username, string password,string firstName, string lastName*/){
   //setting the parsed values into the constructor to make the instructor object
@@ -28,6 +34,21 @@ Instructor::Instructor(/*string username, string password,string firstName, stri
   //this.password=password;
   //this.firstName=firstName;
   //this.lastName=lastName; 
+}
+double Instructor::getMin(){
+  return minValue;
+}
+double Instructor::getMax(){
+  return maxValue;
+}
+bool Instructor::getStudentUsername(string username){
+  bool isFound=false;
+  for(unsigned int=0;i<StudentVec.size();i++){
+    if(StudentVec[i]->getUsername().compare(username)==0){
+      return true;
+    }
+  }
+  return false;
 }
 bool Instructor::login(string username, string password){
   //parse files
@@ -141,6 +162,7 @@ Student getMinStudent(int gradeType){
       }
     }
   }//end of for loop
+  minValue=min;
   return *temp;
 }
 Student getMaxStudent(int gradeType){
@@ -199,6 +221,7 @@ Student getMaxStudent(int gradeType){
       }
     }
   }//end of for loop
+  maxValue=max;
   return *temp;
 }
 double getAvg(int gradeType){
