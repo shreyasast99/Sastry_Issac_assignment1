@@ -11,6 +11,7 @@ int query=0;
 string viewGrades="";
 string studentUser="";
 int gradeType=0;
+int loginType=0;
 int main(){
     while(person!=3){
         cout<<"User types,\n 1 - Instructor\n 2 - Student\n select a login user type or enter 3 to exit:\n"<<endl;
@@ -18,7 +19,7 @@ int main(){
         //checks if you are instructor(1) or student(2)
         if(person==1){
             //do instructor stuff
-            cout<<"Enter credentials to login, Enter username:\n"<<endl;
+            cout<<"Enter credentials to login, \nEnter username:\n"<<endl;
             cin>>username;
             cout<<"Enter password: \n"<<endl;
             cin>>pass;
@@ -34,7 +35,7 @@ int main(){
                     cout<<"Query options,\n1 - view grades of a student\n2 - view stats\nEnter option number:"<<endl;
                     cin>>query;
                     if(query==1&&query==2){
-		      userValid=1; //if it is valid, then changed to 1
+                        userValid=1; //if it is valid, then changed to 1
                     }
                     if(query==1){
                         cout<<"Enter student username to view grades: "<<endl;
@@ -44,15 +45,15 @@ int main(){
                             cout<<"Student username is not valid."<<endl;
                             userValid=0;
                         }
-			else{
-			  cout<<"Student name:"<<instructor->getStudent(studentUser).getStudentName()<<endl;
-			  cout<<"Project   "<<instructor->getStudent(studentUser).getProjectGrade()<<endl;
-			  cout<<"Quiz   "<<instructor->getStudent(studentUser).getQuizGrade()<<endl;
-			  cout<<"Midterm   "<<instructor->getStudent(studentUser).getMidtermGrade()<<endl;
-			  cout<<"Final   "<<instructor->getStudent(studentUser).getFinalGrade()<<endl;
-			  cout<<"Overall   "<<instructor->getStudent(studentUser).getOverallGrade()<<endl;
-			}
-		    }
+                        else{
+                            cout<<"Student name:"<<instructor->getStudent(studentUser).getStudentName()<<endl;
+                            cout<<"\tProject "<<instructor->getStudent(studentUser).getProjectGrade()<<endl;
+                            cout<<"\tQuiz    "<<instructor->getStudent(studentUser).getQuizGrade()<<endl;
+                            cout<<"\tMidterm "<<instructor->getStudent(studentUser).getMidtermGrade()<<endl;
+                            cout<<"\tFinal   "<<instructor->getStudent(studentUser).getFinalGrade()<<endl;
+                            cout<<"\tOverall "<<instructor->getStudent(studentUser).getOverallGrade()<<endl;
+                        }
+                    }
                     else if(query==2){
                         int wrongType=0;
                         while(wrongType==0){
@@ -67,8 +68,8 @@ int main(){
                                 if(gradeType==1){
                                     cout<<"Overall grade stats, "<<endl;
                                     cout<<"min ";
-				    instructor->getMinStudent(1);
-				    cout<<instructor->getMin()<<" ("<<instructor->getMinStudent(1).getStudentName()<<")"<<endl;	 
+                                    instructor->getMinStudent(1);
+                                    cout<<instructor->getMin()<<" ("<<instructor->getMinStudent(1).getStudentName()<<")"<<endl;	 
                                 }
                                 wrongType=1;
                             }

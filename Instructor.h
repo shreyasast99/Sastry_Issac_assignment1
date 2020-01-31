@@ -1,7 +1,7 @@
 #ifndef INSTRUCTOR_H
 #define INSTRUCTOR_H
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <string>
 #include "Student.h"
 //#include "Instructor.h" //just added this 
@@ -18,7 +18,7 @@ public:
     string getInstructorName();
     string getUsername();
     string getPassword();
-    string setInstructorName(string firstName,string lastName);
+    void setInstructorName(string firstName,string lastName);
     Student getStudent(string username);
     Student getMinStudent(int gradeType);
     double getMin();
@@ -29,7 +29,7 @@ public:
     string firstName;
     string lastName;
     string username="";
-    string password="";
+    string password;
     int projectGrade;
     int quizGrade;
     int midtermGrade;

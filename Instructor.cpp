@@ -1,8 +1,9 @@
 #include<iostream>
-#include<string>
 #include<fstream>
-#include "Student.h"
+#include<string>
 #include "Instructor.h"
+#include "Student.h"
+
 
 /*
 string username="";
@@ -31,6 +32,7 @@ void setMin(double min);
 double getMax(Student student);
 void setMax(double max);
 */
+
 //when the intructor logs in youshould make a instructor object with all instructor info. To check if they are actually an instructor then
 Instructor::Instructor(){
   username="";
@@ -79,7 +81,7 @@ bool Instructor::login(string username, string password){
   }
   //identifying the instructor
   while(inInstructorFile >> username >> password >> firstName >> lastName){
-    if((this->getUsername().compare(username)==0)&&(this->getPassword().compare(password)==0)){
+    if((username.compare(username)==0)&&(/*this->getPassword()*/password.compare(password)==0)){
       setInstructorName(firstName,lastName);
       return true;
     }
@@ -87,19 +89,19 @@ bool Instructor::login(string username, string password){
   return false;
 }
 
-void setInstructorName(string firstName, string lastName){
+void Instructor::setInstructorName(string firstName, string lastName){
     fullName=firstName+ " " + lastName;
 }
 string Instructor::getInstructorName(){
   return fullName;
 }
-string getUsername(){
+string Instructor::getUsername(){
     return username;
 }
-string getPassword(){
+string Instructor::getPassword(){
   return password;
 }
-Student getStudent(string username){
+Student Instructor::getStudent(string username){
   unsigned int count=0;
   for(unsigned int i=0;i<StudentVec.size();i++){
     if(StudentVec[i]->getUsername().compare(username)==0){
@@ -110,7 +112,7 @@ Student getStudent(string username){
   }
   return *StudentVec[count];
 }
-Student getMinStudent(int gradeType){
+Student Instructor::getMinStudent(int gradeType){
   Student *temp=new Student();
   int min;
   //setting what the first min would be
@@ -169,7 +171,7 @@ Student getMinStudent(int gradeType){
   minValue=min;
   return *temp;
 }
-Student getMaxStudent(int gradeType){
+Student Instructor::getMaxStudent(int gradeType){
   Student * temp=new Student();
   int max;
   //figuing out strating value of max
@@ -228,7 +230,7 @@ Student getMaxStudent(int gradeType){
   maxValue=max;
   return *temp;
 }
-double getAvg(int gradeType){
+double Instructor::getAvg(int gradeType){
   double sum=0;
   double average=0;
   //iterates through all students and add the overall grade as sum

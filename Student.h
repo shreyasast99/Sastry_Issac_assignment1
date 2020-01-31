@@ -1,7 +1,7 @@
 #ifndef STUDENT_H
 #define STUDENT_H
-#include <iostream>
 #include <vector>
+#include <iostream>
 #include <string>
 using namespace std;
 /*
@@ -31,14 +31,14 @@ public:
   
 //private:
     
-  string fullName;
+  string fullName="";
   string firstName;
   string lastName;
-  int projectGrade;
-  int quizGrade;
-  int midtermGrade;
-  int finalGrade;
-  string username;
+  int projectGrade=0;
+  int quizGrade=0;
+  int midtermGrade=0;
+  int finalGrade=0;
+  string username="";
   string password;
     
 };
