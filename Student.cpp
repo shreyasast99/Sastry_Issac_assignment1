@@ -38,7 +38,7 @@ bool Student::login(string username, string password){
     }//checking if file could be opened
     
     while(inStudentFile >> username >> password >> firstName >> lastName>>projectGrade>>quizGrade>>midtermGrade>>finalGrade){
-        if(this.username==username&&this.password==password){
+        if(this->username==username&&this->password==password){
            
            return true;
         }
@@ -119,16 +119,16 @@ void Student::setFinalGrade(int grade){
 }
 
 void Student::setUsername(string username){
-    this.username=username;
+    this->username=username;
 }
 void Student::setPassword(string password){
-    this.password=password;
+    this->password=password;
 }
 void Student::setFirstName(string firstName){
-    this.firstName=firstName;
+    this->firstName=firstName;
 }
 void Student::setLastName(string lastName){
-    this.lastName=lastName;
+    this->lastName=lastName;
 }
 //Student::~Student(){}
 //};
