@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include "Student.h"
 using namespace std;
 /*
  *Used for implementing the Instructor class. This class has different
@@ -18,7 +19,7 @@ public:
   string setInstructorName(string firstName,string lastName);
   Student getStudent(string username);
   Student getMinStudent(int gradeType);
-  Student getMaxStudetn(int gradeType);
+  Student getMaxStudent(int gradeType);
   double getAvg(int gradeType);
   //void setInstructorName(string fullName);
 private:

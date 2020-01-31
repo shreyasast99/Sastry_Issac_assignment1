@@ -75,15 +75,35 @@ string getPassword(){
   return password;
 }
 Student getStudent(string username){
+  unsigned int count=0;
   for(unsigned int i=0;i<StudentVec.size();i++){
-    if(StudentVec[i]->getUsername().compare(username)){
-      return *StudentVec[i];
+    if(StudentVec[i]->getUsername().compare(username)==0){
+      //return *StudentVec[i];
+      //storing the value of index where they are equal
+      count=i;
     }
   }
+  return *StudentVec[count];
 }
 Student getMinStudent(int gradeType){
   Student *temp=new Student();
-  int min=StudentVec[0]->getProjectGrade();
+  int min;
+  //setting what the first min would be
+  if(gradeType==1){ 
+    min=StudentVec[0]->getProjectGrade();
+  }
+  if(gradeType==2){ 
+    min=StudentVec[0]->getQuizGrade();
+  }
+  if(gradeType==3){ 
+    min=StudentVec[0]->getMidtermGrade();
+  }
+  if(gradeType==4){ 
+    min=StudentVec[0]->getFinalGrade();
+  }
+  if(gradeType==5){ 
+    min=StudentVec[0]->getOverallGrade();
+  }
   for(unsigned int i=0;i<StudentVec.size();i++){
     //grade type 1:project
     if(gradeType==1){
@@ -125,39 +145,55 @@ Student getMinStudent(int gradeType){
 }
 Student getMaxStudent(int gradeType){
   Student * temp=new Student();
-  int min=StudentVec[0]->getProjectGrade();
+  int max;
+  //figuing out strating value of max
+  if(gradeType==1){ 
+    max=StudentVec[0]->getProjectGrade();
+  }
+  if(gradeType==2){ 
+    max=StudentVec[0]->getQuizGrade();
+  }
+  if(gradeType==3){ 
+    max=StudentVec[0]->getMidtermGrade();
+  }
+  if(gradeType==4){ 
+    max=StudentVec[0]->getFinalGrade();
+  }
+  if(gradeType==5){ 
+    max=StudentVec[0]->getOverallGrade();
+  }
   for(unsigned int i=0;i<StudentVec.size();i++){
     //grade type 1:project
     if(gradeType==1){
-      if(StudentVec[i]->getProjectGrade()<min){
+      if(StudentVec[i]->getProjectGrade()>max){
 	max=StudentVec[i]->getProjectGrade();
 	temp=StudentVec[i];
       }
     }
     //grade type 2:quiz
     if(gradeType==2){
-      if(StudentVec[i]->getQuizGrade()<min){
+      if(StudentVec[i]->getQuizGrade()>max){
 	max=StudentVec[i]->getQuizGrade();
 	temp=StudentVec[i];
       }
     }
     //grade type 3:midterm
     if(gradeType==3){
-      if(StudentVec[i]->getMidtermGrade()<min){
+      if(StudentVec[i]->getMidtermGrade()>max){
 	max=StudentVec[i]->getMidtermGrade();
 	temp=StudentVec[i];
       }
     }
     //grade type 4: final
     if(gradeType==4){
-      if(StudentVec[i]->getFinalGrade()<min){
+      if(StudentVec[i]->getFinalGrade()>max){
 	max=StudentVec[i]->getFinalGrade();
 	temp=StudentVec[i];
       }
     }
     //grade type 5: overall
     if(gradeType==5){
-      if(StudentVec[i]->getOverallGrade()<min){
+      if(StudentVec[i]->getOverallGrade()>max){
 	max=StudentVec[i]->getOverallGrade();
 	temp=StudentVec[i];
       }

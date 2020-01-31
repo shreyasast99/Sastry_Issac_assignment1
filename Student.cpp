@@ -19,12 +19,14 @@ int getQuizGrade();
 int getMidtermGrade();
 int getFinalGrade();
 double getOverallGrade();
-//class Student{
 /*
  *Student constructor
  */
 Student::Student(){
           
+}
+string Student::getUsername(){
+  return username;
 }
 
 bool Student::login(string username, string password){
