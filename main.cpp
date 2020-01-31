@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
-#include "Student.h"
 #include "Instructor.h"
+#include "Student.h"
+
 using namespace std;
 int person=0;
 string username="";

@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include "Student.h"
+#include "Instructor.h" //just added this 
 using namespace std;
 /*
  *Used for implementing the Instructor class. This class has different
@@ -25,9 +26,19 @@ public:
   double getMax();
   double getAvg(int gradeType);
   //void setInstructorName(string fullName);
-private:
-  string fullName;
+//private:
+    
+  string fullName="";
   string firstName;
   string lastName;
+    string username;
+    string password;
+    int projectGrade;
+    int quizGrade;
+    int midtermGrade;
+    int finalGrade;
+    int minValue;
+    int maxValue;
+    
 };
 #endif

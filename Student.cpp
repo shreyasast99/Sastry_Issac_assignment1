@@ -3,6 +3,7 @@
 #include <fstream>
 #include "Student.h"
 using namespace std;
+/*
 string fullName;
 string firstName;
 string lastName;
@@ -12,6 +13,8 @@ int midtermGrade;
 int finalGrade;
 string username;
 string password;
+*/
+/*
 bool login(string username, string password);
 string getStudentName();
 int getProjectGrade();
@@ -19,6 +22,7 @@ int getQuizGrade();
 int getMidtermGrade();
 int getFinalGrade();
 double getOverallGrade();
+*/
 /*
  *Student constructor
  */

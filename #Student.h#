@@ -1,5 +1,5 @@
 #ifndef STUDENT_H
-#define STUDENT_H
+0;136;0c#define STUDENT_H
 #include <iostream>
 #include <vector>
 #include <string>
@@ -29,8 +29,7 @@ public:
   void setFirstName(string firstName);
   void setLastName(string lastName);
   
-//private:
-    
+private:
   string fullName;
   string firstName;
   string lastName;
@@ -40,6 +39,5 @@ public:
   int finalGrade;
   string username;
   string password;
-    
 };
 #endif

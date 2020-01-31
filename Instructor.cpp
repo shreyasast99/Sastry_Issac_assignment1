@@ -3,21 +3,23 @@
 #include<fstream>
 #include "Student.h"
 #include "Instructor.h"
+/*
 string username="";
 string password="";
 string firstName="";
 string lastName="";
 string fullName="";
-int projectGrade="";
+int projectGrade=0;
 int quizGrade=0;
 int midtermGrade=0;
 int finalGrade=0;
 int minValue=0;
 int maxValue=0;
-
+*/
 vector<Student*> StudentVec;
+/*
 bool login(string username, string password);
-bool getStudentUsername(string username);
+bool studentUsername(string username);
 string getInstructorName();
 Student getStudent(string username);
 Student getMinStudent(int gradeType);
@@ -27,6 +29,7 @@ double getMin(Student student);
 void setMin(double min);
 double getMax(Student student);
 void setMax(double max);
+*/
 //when the intructor logs in youshould make a instructor object with all instructor info. To check if they are actually an instructor then
 Instructor::Instructor(/*string username, string password,string firstName, string lastName*/){
   //setting the parsed values into the constructor to make the instructor object
@@ -41,9 +44,9 @@ double Instructor::getMin(){
 double Instructor::getMax(){
   return maxValue;
 }
-bool Instructor::getStudentUsername(string username){
-  bool isFound=false;
-  for(unsigned int=0;i<StudentVec.size();i++){
+bool Instructor::studentUsername(string username){
+    //bool isFound=false;
+  for(unsigned int i=0;i<StudentVec.size();i++){
     if(StudentVec[i]->getUsername().compare(username)==0){
       return true;
     }
