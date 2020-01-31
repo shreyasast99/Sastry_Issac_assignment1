@@ -9,6 +9,7 @@ string pass;
 int query;
 string viewGrades;
 string studentUser;
+int gradeType;
 int main(){
     while(person!=3){
         cout<<"User types,\n 1 - Instructor\n 2 - Student\n select a login user type or enter 3 to exit:\n"<<endl;
@@ -25,25 +26,57 @@ int main(){
                 cout<<"You are now logged in as instructor "<< instructor->getInstructorName()<< "."<<endl;
                 cout<<"Query options,\n1 - view grades of a student\n2 - view stats\nEnter option number:"<<endl;
                 cin>>query;
-                //checks the query option(view grades or view stats
-                while(query!=1&&query!=2){
+                //checks the query option(view grades or view stats)
+                int queryValid=0;
+                
+                while(queryValid==0){//checks if user input is valid
                     cout<<"Query options,\n1 - view grades of a student\n2 - view stats\nEnter option number:"<<endl;
                     cin>>query;
-                }
-                if(query==1){
-                    cout<<"Enter student username to view grades: "<<endl;
-                    cin>>studentUser;
-                    instructor->getStudent(studentUser);
-                }
-                else if(query==2){
-		  
-                }
-                else{
-		  cout<<"Invalid option. Please enter a valid option."<<endl;
-                }
+                    if(query!=1&&query!=2){
+                        queryValid=0;
+                    }
+                    userValid=1;
+                    if(query==1){
+                        cout<<"Enter student username to view grades: "<<endl;
+                        cin>>studentUser;
+                        //checking if username is in file COME BACK HERE
+                        if(student.getUsername(studentUser).compare("")){
+                            cout<<"Student username is not valid."<<endl;
+                            userValid=0;
+                        }
+                        cout<<"Student name:"<<instructor->getStudent(studentUser).getStudentName()<<endl;
+                        cout<<"Project   "<<instructor->getStudent(studentUser).getProjectGrade()<<endl;
+                        cout<<"Quiz   "<<instructor->getStudent(studentUser).getQuizGrade()<<endl;
+                        cout<<"Midterm   "<<instructor->getStudent(studentUser).getMidtermGrade()<<endl;
+                        cout<<"Final   "<<instructor->getStudent(studentUser).getFinalGrade()<<endl;
+                        cout<<"Overall   "<<instructor->getStudent(studentUser).getOverallGrade()<<endl;
+                    }
+                    else if(query==2){
+                        int wrongType=0;
+                        while(wrongType==0){
+                            
+                            cout<<"Grade types, \n 1 - Project grade \n2 - Quiz grade\n3 - Midterm grade\n4 - Final grade\n5 - Overall grade"<<endl;
+                            cout<<"Select a grade type to view stats: "<<endl;
+                            cin>>gradeType;
+                            if(gradeType!=1||gradeType!=2||gradeType!=3||gradeType!=4||gradeType!=5){
+                                cout<<"Invalid option. Please select a valid option."<<endl;
+                            }
+                            else{
+                                if(gradeType==1){
+                                    cout<<"Overall grade stats, "<<endl;
+                                    cout<<"min "<< instructor->getStudent(studentUser).getStudentName()<<endl;
+                                }
+                                wrongType=1;
+                            }
+                        }
+                    }
+                    else{
+                        cout<<"Invalid option. Please enter a valid option."<<endl;
+                    }
+                }//userValid while loop
             }
             else{
-	      cout<<"Login as instructor failed"<<endl;
+                cout<<"Login as instructor failed"<<endl;
             }
         }//Person is 1 (Instructor)
         else if(person==2){
