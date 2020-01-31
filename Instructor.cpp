@@ -40,13 +40,19 @@ bool Instructor::login(string username, string password){
 //populating student vector
   ifstream inStudentFile("students.txt",ios::in);
   while(inStudentFile >> username >> password >> firstName >> lastName>>projectGrade>>quizGrade>>midtermGrade>>finalGrade){
-      Student *stud1=new Student();
-      stud1->setUsername(username);
-      stud1->setPassword(password);
+      Student *temp=new Student();
+      temp->setUsername(username);
+      temp->setPassword(password);
+      temp->setFirstName(firstName);
+      temp->setLastName(lastName);
+      temp->setProjetGrade(projectGrade);
+      temp->setQuizGrade(quizGrade);
+      temp->setMidtermGrade(midtermGrade);
+      temp->setFinalGrade(finalGrade);
       StudentVec.push_back(new Student());   
   }//student vector
   while(inInstructorFile >> username >> password >> firstName >> lastName){
-      if(this.username==username&&this.password==password){
+      if((this.username.compare(username)==0)&&(this.password.compare(password)==0)){
           setInstructorName(firstName,lastName);
           return true;
       }
@@ -63,11 +69,22 @@ string Instructor::getInstructorName(){
     return fullName;
 }
 Student getStudent(string username){
-    
+    for(int i=0;i<StudentVec.size();i++){
+        if(StudentVec[i]->getUsername().compare(username)){
+            return *StudentVec[i];
+        }
+    }
 }
 Student getMinStudent(int gradeType){
-    Student *student=new Student();
-    return student;
+    int min=StudentVec[0]->getProjectGrade();
+    for(int i=0;i<StudentVec.size();i++){
+        if(gradeType==1){//project
+            if(StudentVec[i]->getProjectGrade()<min){
+                min=StudentVec[i]->getProjectGrade();
+            }
+        }
+    }
+    return min;
 }
 Student getMaxStudent(int gradeType){
     Student *student=new Student();
